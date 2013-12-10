@@ -27,7 +27,9 @@ func secret(name string) (string, error) {
 	command, args := getSecretCommand(name)
 	cmd := exec.Command(command, args...)
 	output, err := cmd.CombinedOutput()
-	if err != nil { return string(output), err }
+	if err != nil {
+		return string(output), err
+	}
 
 	return strings.TrimSpace(string(output)), nil
 }
