@@ -5,6 +5,7 @@
 
 # Folders
 bin
+pkg
 _obj
 _test
 
