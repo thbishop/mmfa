@@ -8,7 +8,7 @@ SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ] ; do SOURCE="$(readlink "$SOURCE")"; done
 DIR="$( cd -P "$( dirname "$SOURCE" )/.." && pwd )"
 
-PROJECT=ec2_metadata_dump
+PROJECT=mmfa
 
 # Change into that dir because we expect that
 cd $DIR
@@ -30,8 +30,8 @@ fi
 echo "Version: ${VERSION} ${PREVERSION}"
 
 # Determine the arch/os combos we're building for
-XC_ARCH=${XC_ARCH:-"386 amd64"}
-XC_OS=${XC_OS:-linux}
+XC_ARCH=${XC_ARCH:-"amd64"}
+XC_OS=${XC_OS:-darwin}
 
 echo "Arch: ${XC_ARCH}"
 echo "OS: ${XC_OS}"
