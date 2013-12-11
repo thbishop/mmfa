@@ -13,7 +13,7 @@ First, download a pre-built binary from the desired [release](https://github.com
 You can add a MFA secret with the add command (it's stored in the OSX login keychain):
 
 ```
-$ ./mmfa add -n my_service
+$ ./mmfa add my_service
 ```
 
 ### Get the Current MFA Code
@@ -21,7 +21,7 @@ $ ./mmfa add -n my_service
 You can then grab the current MFA code with:
 
 ```
-$ ./mmfa get -n my_service
+$ ./mmfa get my_service
 ```
 
 ## Contribute
