@@ -3,8 +3,9 @@ package main
 import (
 	"os"
 
+	"./commands"
+
 	"github.com/codegangsta/cli"
-	"github.com/thbishop/mmfa/commands"
 )
 
 func main() {

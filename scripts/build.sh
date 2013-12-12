@@ -21,4 +21,3 @@ go build \
     -ldflags "-X main.GitCommit ${GIT_COMMIT}${GIT_DIRTY}" \
     -v \
     -o bin/mmfa
-cp bin/mmfa $GOPATH/bin

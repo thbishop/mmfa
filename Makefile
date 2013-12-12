@@ -1,16 +1,26 @@
-DEPS = $(go list -f '{ range .TestImports}}{ .}} { end}}' ./...' } } }')
+root_dir = `pwd`
+gopath = "$(root_dir)/third_party:$(root_dir)"
 
 all: fmt test
 	@mkdir -p bin/
-	@bash --norc -i ./scripts/build.sh
+	@env GOPATH=$(gopath) bash --norc -i ./scripts/build.sh
 
 deps:
-	go get -d -v ./...
-	echo $(DEPS) | xargs -n1 go get -d
+	@echo
+	@echo "==> Downloading dependencies."
+	@echo
+	@env GOPATH=$(gopath) go get -d -v ./...
+	@echo
+	@echo "==> Removing .git and .bzr from third_party."
+	@echo
+	@find ./third_party -type d -name .git | xargs rm -rf
+	@find ./third_party -type d -name .bzr | xargs rm -rf
 
 fmt:
-	@echo "\n==> Formatting source code"
-	@go fmt ./...
+	@echo
+	@echo "==> Formatting source code."
+	@echo
+	@env GOPATH=$(gopath) go fmt ./...
 
 help:
 	@echo "default\t\ttest, format, and build the code"
@@ -22,9 +32,9 @@ help:
 package:
 	@echo "\n==> Packaging the code\n"
 	@mkdir -p pkg/
-	@bash --norc -i ./scripts/dist.sh
+	@env GOPATH=$(gopath) bash --norc -i ./scripts/dist.sh
 
 test:
-	go list ./... | xargs -n1 go test
+	@env GOPATH=$(gopath) go test ./...
 
 .PNONY: all fmt help package test
