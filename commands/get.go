@@ -3,6 +3,7 @@ package commands
 import (
 	"os"
 	"os/exec"
+	"strconv"
 	"strings"
 
 	"github.com/craigmj/gototp"
@@ -20,7 +21,9 @@ func GetCode(name string) {
 		os.Stderr.Write([]byte("Error calculating code: " + err.Error()))
 		os.Exit(1)
 	}
-	print(otp.Now())
+
+	code := strconv.Itoa(int(otp.Now()))
+	print(strings.Repeat("0", 6-len(code)) + code)
 }
 
 func secret(name string) (string, error) {
