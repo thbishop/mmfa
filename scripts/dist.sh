@@ -53,7 +53,6 @@ gox \
 for PLATFORM in $(find ./pkg -mindepth 1 -maxdepth 1 -type d); do
     set +e
     mv ${PLATFORM}/$PROJECT-$PROJECT ${PLATFORM}/$PROJECT 2>/dev/null
-    mv ${PLATFORM}/$PROJECT-$PROJECT.exe ${PLATFORM}/$PROJECT.exe 2>/dev/null
     set -e
 done
 
