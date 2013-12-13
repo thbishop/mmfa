@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"./commands"
+	"github.com/thbishop/mmfa/commands"
 
 	"github.com/codegangsta/cli"
 )

@@ -6,7 +6,7 @@ It is heavily inspired by [Bradly Feeley's ruby mmfa project](https://github.com
 
 ## Quick Start
 
-First, download a pre-built binary from the desired [release](https://github.com/thbishop/mmfa-go/releases).
+First, download a pre-built binary from the desired [release](https://github.com/thbishop/mmfa/releases).
 
 ### Add a Secret
 

@@ -1,5 +1,4 @@
-root_dir = `pwd`
-gopath = "$(root_dir)/third_party:$(root_dir)"
+gopath = "$(root_dir)/third_party:$(GOPATH)"
 
 all: fmt test
 	@mkdir -p bin/
