@@ -23,7 +23,7 @@ func GetCode(name string) {
 	}
 
 	code := strconv.Itoa(int(otp.Now()))
-	println(strings.Repeat("0", 6-len(code)) + code)
+	os.Stdout.Write([]byte(strings.Repeat("0", 6-len(code)) + code + "\n"))
 }
 
 func secret(name string) (string, error) {
