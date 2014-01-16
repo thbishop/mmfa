@@ -1,5 +1,7 @@
 # mmfa
 
+[![Build Status](https://travis-ci.org/thbishop/mmfa.png?branch=master)](https://travis-ci.org/thbishop/mmfa)
+
 mmfa is a command line tool to help manage MFA secrets and generate one time MFA codes on OSX.
 
 It is heavily inspired by [Bradly Feeley's ruby mmfa project](https://github.com/bradly/mmfa).
