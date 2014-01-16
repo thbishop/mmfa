@@ -1,3 +1,4 @@
+root_dir = `pwd`
 gopath = "$(root_dir)/third_party:$(GOPATH)"
 
 all: fmt test
