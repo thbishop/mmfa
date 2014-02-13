@@ -8,7 +8,8 @@ import (
 )
 
 func AddKeychainItem(name string) {
-	output, err := addItem(name, secretFromUser())
+	keychainName := "mmfa_" + name
+	output, err := addItem(keychainName, secretFromUser())
 	if err != nil {
 		os.Stderr.Write([]byte("Error adding item: " + err.Error() + "\n" + output))
 		os.Exit(1)
