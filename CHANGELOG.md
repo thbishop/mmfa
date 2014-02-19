@@ -1,5 +1,7 @@
 ## head
 
+## 0.2.0 (February 18, 2014)
+
 * adding list command
 * append \n to get command output (#2)
 * write get output to stdout in order to pipe
