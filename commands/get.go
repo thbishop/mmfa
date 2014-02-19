@@ -10,7 +10,8 @@ import (
 )
 
 func GetCode(name string) {
-	secret, err := secret(name)
+	keychainName := "mmfa_" + name
+	secret, err := secret(keychainName)
 	if err != nil {
 		os.Stderr.Write([]byte("Error getting secret: " + err.Error() + "\n" + secret))
 		os.Exit(1)

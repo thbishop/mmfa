@@ -47,6 +47,13 @@ func realMain() (exitCode int) {
 				commands.GetCode(c.Args().First())
 			},
 		},
+		{
+			Name:  "list",
+			Usage: "list mmfa items available in keychain",
+			Action: func(c *cli.Context) {
+				commands.ListKeychainItems()
+			},
+		},
 	}
 
 	app.Run(os.Args)
