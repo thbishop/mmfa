@@ -26,6 +26,8 @@ You can then grab the current MFA code with:
 $ ./mmfa get my_service
 ```
 
+This will print your MFA code to stdout and copy it to your clipboard.
+
 ### List Secrets
 
 You can list MFA items to help you see what you've added or which item you'd like to get a passcode for:
