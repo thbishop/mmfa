@@ -23,9 +23,13 @@ func GetCode(name string) {
 		os.Exit(1)
 	}
 
-	code := strconv.Itoa(int(otp.Now()))
-	copyToClipboard(strings.Repeat("0", 6-len(code)) + code)
-	os.Stdout.Write([]byte(strings.Repeat("0", 6-len(code)) + code + "\n"))
+	code := sanitizedCode(strconv.Itoa(int(otp.Now())))
+	copyToClipboard(code)
+	os.Stdout.Write([]byte(code + "\n"))
+}
+
+func sanitizedCode(otp string) string {
+	return strings.Repeat("0", 6-len(otp)) + otp
 }
 
 func secret(name string) (string, error) {
