@@ -24,6 +24,7 @@ func GetCode(name string) {
 	}
 
 	code := strconv.Itoa(int(otp.Now()))
+	copyToClipboard(strings.Repeat("0", 6-len(code)) + code)
 	os.Stdout.Write([]byte(strings.Repeat("0", 6-len(code)) + code + "\n"))
 }
 
@@ -48,4 +49,13 @@ func getSecretCommand(name string) (string, []string) {
 		"-w",
 	}
 	return "security", args
+}
+
+func copyToClipboard(code string) {
+	echo := exec.Command("echo", code)
+	pbcopy := exec.Command("pbcopy")
+	_, err := pipedCommands(echo, pbcopy)
+	if err != nil {
+		print(err)
+	}
 }
