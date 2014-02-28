@@ -1,4 +1,7 @@
 ## head
+
+## 0.3.0 (February 27, 2014)
+
 * mfa codes now get copied to clipboard
 
 ## 0.2.0 (February 18, 2014)
