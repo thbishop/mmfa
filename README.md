@@ -6,9 +6,18 @@ mmfa is a command line tool to help manage MFA secrets and generate one time MFA
 
 It is heavily inspired by [Bradly Feeley's ruby mmfa project](https://github.com/bradly/mmfa).
 
-## Quick Start
+## Install
 
-First, download a pre-built binary from the desired [release](https://github.com/thbishop/mmfa/releases).
+If you have homebrew, you can install it with:
+
+```sh
+brew tap thbishop/mmfa
+brew install mmfa
+```
+
+If that doesn't float your boat, you can download the [latest binary](https://github.com/thbishop/mmfa/releases/latest) and place it somewhere in your path (perhaps `/usr/local/bin`).
+
+## Quick Start
 
 ### Add a Secret
 
