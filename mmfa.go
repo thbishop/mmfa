@@ -31,7 +31,24 @@ func realMain() (exitCode int) {
 					exitCode = 1
 					return
 				}
-				commands.AddKeychainItem(c.Args().First())
+				comments := " "
+				if len(c.Args()) > 1 {
+					comments = c.Args()[1]
+				}
+				commands.AddKeychainItem(c.Args().First(), comments)
+			},
+		},
+		{
+			Name:  "remove",
+			Usage: "remove a keychain item",
+			Action: func(c *cli.Context) {
+				if !c.Args().Present() {
+					println("Name not provided\n")
+					cli.ShowCommandHelp(c, "remove")
+					exitCode = 1
+					return
+				}
+				commands.RemoveKeychainItem(c.Args().First())
 			},
 		},
 		{

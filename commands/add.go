@@ -7,9 +7,10 @@ import (
 	"code.google.com/p/gopass"
 )
 
-func AddKeychainItem(name string) {
+func AddKeychainItem(name string, c string) {
 	keychainName := "mmfa_" + name
-	output, err := addItem(keychainName, secretFromUser())
+	comments := "mmfa_" + c
+	output, err := addItem(keychainName, comments, secretFromUser())
 	if err != nil {
 		os.Stderr.Write([]byte("Error adding item: " + err.Error() + "\n" + output))
 		os.Exit(1)
@@ -17,20 +18,22 @@ func AddKeychainItem(name string) {
 	println("Added", name)
 }
 
-func addItem(name string, secret string) (string, error) {
-	command, args := addItemCommand(name, secret)
+func addItem(name string, comments string, secret string) (string, error) {
+	command, args := addItemCommand(name, comments, secret)
 	cmd := exec.Command(command, args...)
 	output, err := cmd.CombinedOutput()
 	return string(output), err
 }
 
-func addItemCommand(name string, secret string) (string, []string) {
+func addItemCommand(name string, comments string, secret string) (string, []string) {
 	args := []string{
 		"add-generic-password",
 		"-a",
 		name,
 		"-s",
 		name,
+		"-j",
+		comments,
 		"-w",
 		secret,
 	}
