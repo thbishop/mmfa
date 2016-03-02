@@ -7,11 +7,12 @@ import (
 
 func ListKeychainItems() {
 	security := exec.Command("security", "dump-keychain")
-	grep := exec.Command("grep", "-E", "acct.*mmfa_")
-	cut := exec.Command("cut", "-d", "=", "-f2")
-	sed := exec.Command("sed", "s/\"//g;s/mmfa_//")
+	seda := exec.Command("sed", "-n", "s/acct.*mmfa_//p;s/icmt.*mmfa_//p")
+	sedb := exec.Command("sed", "s/\"//g")
+	paste := exec.Command("paste", "-d", " ", "-", "-")
 	sort := exec.Command("sort")
-	output, err := pipedCommands(security, grep, cut, sed, sort)
+
+	output, err := pipedCommands(security, seda, sedb, paste, sort)
 	if err != nil {
 		print(err)
 	}
