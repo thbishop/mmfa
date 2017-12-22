@@ -91,7 +91,7 @@ func (totp *TOTP) QRCodeData(label string) string {
 	return fmt.Sprintf("otpauth://totp/%v?secret=%v&Digits=%v&Period=%v", label, totp.Secret(), totp.Digits, totp.Period)
 }
 
-// Return a URL to generate a QRCode on Google Charts for the TOTP, with the given
+// Return a URL to generate a QRCode on Google Charts for the TOTP, with the given 
 // label and width (and height equal to width).
 func (totp *TOTP) QRCodeGoogleChartsUrl(label string, width int) string {
 	return fmt.Sprintf("https://chart.googleapis.com/chart?cht=qr&chs=%vx%v&chl=%v", width, width, url.QueryEscape(totp.QRCodeData(label)))

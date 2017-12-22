@@ -1,0 +1,20 @@
+{
+	"ImportPath": "github.com/thbishop/mmfa",
+	"GoVersion": "go1.9",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "code.google.com/archive/p/gopass",
+			"Rev": "3b39664481b57ad99d34c86bd64090c28eacc7a1"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/cli",
+			"Comment": "v1.20.0-49-g39908eb",
+			"Rev": "39908eb08fee7c10d842622a114a5c133fb0a3c6"
+		},
+		{
+			"ImportPath": "github.com/craigmj/gototp",
+			"Rev": "bbfd598b42caf9b1db7318cae7e10d0b94846f56"
+		}
+	]
+}

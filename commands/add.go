@@ -4,7 +4,7 @@ import (
 	"os"
 	"os/exec"
 
-	"code.google.com/p/gopass"
+	"code.google.com/archive/p/gopass"
 )
 
 func AddKeychainItem(name string) {
