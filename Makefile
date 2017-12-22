@@ -22,6 +22,6 @@ package:
 	@env bash --norc -i ./scripts/dist.sh
 
 test:
-	@env godep go test ./...
+	@env go test ./...
 
 .PNONY: all fmt help package test

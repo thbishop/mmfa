@@ -17,7 +17,7 @@ GIT_DIRTY=$(test -n "`git status --porcelain`" && echo "+CHANGES" || true)
 
 # Build!
 echo "--> Building..."
-godep go build \
+go build \
     -ldflags "-X main.GitCommit=${GIT_COMMIT}${GIT_DIRTY}" \
     -v \
     -o bin/mmfa
