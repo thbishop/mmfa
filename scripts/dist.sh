@@ -42,12 +42,10 @@ trap "kill 0" SIGINT SIGTERM EXIT
 # This function builds whatever directory we're in...
 rm -fr pkg
 mkdir -p pkg
-gox \
-    -os="${XC_OS}" \
-    -arch="${XC_ARCH}" \
-    -ldflags "-X github.com/thbishop/$PROJECT/$PROJECT ${GIT_COMMIT}${GIT_DIRTY}" \
-    -output "pkg/{{.OS}}_{{.Arch}}/$PROJECT-{{.Dir}}" \
-    ./...
+GOOS=${XC_OS} GOARCH=${XC_ARCH} CGO_ENABLED=0 \
+  go build \
+  -ldflags "-X github.com/thbishop/$PROJECT/$PROJECT=${GIT_COMMIT}${GIT_DIRTY}" \
+  -o "pkg/${XC_OS}_${XC_ARCH}/$PROJECT"
 
 # Make sure it is renamed properly
 for PLATFORM in $(find ./pkg -mindepth 1 -maxdepth 1 -type d); do
