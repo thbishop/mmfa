@@ -1,5 +1,9 @@
 ## head
 
+## 0.3.1 (February 15, 2018)
+
+* updated to work on macOS 10.13 (High Sierra)
+
 ## 0.3.0 (February 27, 2014)
 
 * mfa codes now get copied to clipboard
